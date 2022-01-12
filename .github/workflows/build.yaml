@@ -8,6 +8,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Pack Build
-        uses: dfreilich/pack-action@v2
+        uses: dfreilich/pack-action@v2.0.15
         with:
           args: "builder create  ghcr.io/melenion/rust-builder --config builder.toml"
