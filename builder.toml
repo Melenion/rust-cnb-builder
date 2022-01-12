@@ -37,4 +37,4 @@ description = "A sample Builder for using Rust related CNBs"
   run-image = "gcr.io/paketo-buildpacks/run:base-cnb"
 
 [lifecycle]
-version = "0.11.3"
+version = "0.13.2"
