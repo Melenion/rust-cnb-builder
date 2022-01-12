@@ -1,0 +1,13 @@
+name: build-builder
+on:
+  push:
+jobs:
+  local_build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Pack Build
+        uses: dfreilich/pack-action@v2
+        with:
+          args: "builder create  ghcr.io/melenion/rust-builder --config builder.toml"
