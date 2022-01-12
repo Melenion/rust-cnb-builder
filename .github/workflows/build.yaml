@@ -10,4 +10,14 @@ jobs:
       - name: Pack Build
         uses: dfreilich/pack-action@v2.0.15
         with:
-          args: "builder create  ghcr.io/melenion/rust-builder --config builder.toml"
+          args: "builder create  ghcr.io/melenion/rust-cnb-builder --config builder.toml"
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: push
+        run: docker push ghcr.io/melenion/rust-cnb-builder
