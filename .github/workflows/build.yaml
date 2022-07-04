@@ -8,7 +8,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Pack Build
-        uses: dfreilich/pack-action@v2.0.15
+        uses: dfreilich/pack-action@v2.1.1
         with:
           args: "builder create  ghcr.io/melenion/rust-cnb-builder --config builder.toml"
       - name: Set up Docker Buildx
