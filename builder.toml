@@ -2,19 +2,23 @@ description = "A sample Builder for using Rust related CNBs"
 
 [[buildpacks]]
   id = "paketo-community/rustup"
-  uri = "docker://docker.io/paketocommunity/rustup:1.1.2"
+  uri = "docker://docker.io/paketocommunity/rustup:1.3.0"
 
 [[buildpacks]]
   id = "paketo-community/rust-dist"
-  uri = "docker://docker.io/paketocommunity/rust-dist:1.3.1"
+  uri = "docker://docker.io/paketocommunity/rust-dist:1.8.0"
+
+[[buildpacks]]
+  id = "paketo-buildpacks/syft"
+  uri = "docker://gcr.io/paketo-buildpacks/syft:1.11.3"
 
 [[buildpacks]]
   id = "paketo-community/cargo"
-  uri = "docker://docker.io/paketocommunity/cargo:0.2.1"
+  uri = "docker://docker.io/paketocommunity/cargo:0.5.0"
 
 [[buildpacks]]
   id = "paketo-buildpacks/procfile"
-  uri = "docker://gcr.io/paketo-buildpacks/procfile:5.0.2"
+  uri = "docker://gcr.io/paketo-buildpacks/procfile:5.1.2"
 
 [[order]]
 
@@ -23,6 +27,9 @@ description = "A sample Builder for using Rust related CNBs"
 
   [[order.group]]
     id = "paketo-community/rust-dist"
+
+  [[order.group]]
+    id = "paketo-buildpacks/syft"
 
   [[order.group]]
     id = "paketo-community/cargo"
@@ -35,6 +42,3 @@ description = "A sample Builder for using Rust related CNBs"
   build-image = "gcr.io/paketo-buildpacks/build:base-cnb"
   id = "io.buildpacks.stacks.bionic"
   run-image = "gcr.io/paketo-buildpacks/run:base-cnb"
-
-[lifecycle]
-version = "0.13.2"
